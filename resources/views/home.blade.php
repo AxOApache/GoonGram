@@ -10,9 +10,9 @@
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-    
+
     <title>Home Page</title>
-    
+
     @include('navbar')
 
 </head>
@@ -24,8 +24,20 @@
             <div class = "border p-3 m-2">
 
                 {{-- data loaders --}}
-                <div name = "id" class = " userID invisible">{{ $post->id }}</div> 
+                <div name = "id" class = " userID invisible">{{ $post->id }}</div>
                 <div name = "postID"class = " postID invisible">{{ $post->postID }}</div>
+
+                <div class="dropdown position-absolute top-0 end-0 m-2">
+                    <button class="btn btn-outline-dark btn-sm dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+                        <source class="bi bi-three-dots">
+                    </button>
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                        <li><a class="dropdown-item" href="#">Block User</a></li>
+                        <li><a class="dropdown-item" href="/messages">Message User</a></li>
+                        <li><a class="dropdown-item" href="#">Send Friend Request</a></li>
+                        <li><a class="dropdown-item" href="#">Report Post</a></li>
+                    </ul>
+                </div>
 
                 {{-- Popover button --}}
                 <div class="dropdown d-flex justify-content-end">
@@ -35,15 +47,15 @@
                         </svg>
                       </button>
                   </div>
-                
+
                 <div class = "d-flex">
 
                     <img draggable="false" id = "profilePicture" name = "profilePicture"style = "height:50px; width:50px;" class = "" src="
-                        @if($post->profilePicture == null) {{ asset('storage/avatar-3814049_1920.png') }} 
+                        @if($post->profilePicture == null) {{ asset('storage/avatar-3814049_1920.png') }}
                         @else {{ asset('storage/'.$post->profilePicture) }}
                     @endif">
 
-                    <div> 
+                    <div>
                         <div class = "p-2">{{ $post->username }}</div>
                     </div>
 
@@ -170,7 +182,7 @@
                             $(likeIcon).removeClass('text-warning');
                         }
                     }
-                }); 
+                });
             });
         });
     </script>

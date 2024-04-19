@@ -48,6 +48,8 @@ Route::post('/login', [LoginController::class, 'login']);
 Route::post('/update', [AccountControllerApiController::class, 'updateAccount']);
 Route::post('/createPost', [postApiController::class, 'createPost']);
 Route::post('/like', [postApiController::class, 'like']);
+Route::post('/createComment', [commentController::class, 'createComment']);
+
 Route::post('/send-message', [MessageController::class, 'sendMessage'])->name('send.message');
 Route::post('/approve-message/{directMessage}', [MessageController::class, 'approveMessage'])->name('approve.message');
 
