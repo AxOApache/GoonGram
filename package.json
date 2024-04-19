@@ -12,5 +12,9 @@
     },
     "dependencies": {
         "bootstrap": "^5.3.3"
+    },
+    "dependencies": {
+        "bootstrap": "^5.3.3",
+        "grayscale-css": "^0.8.5"
     }
 }
